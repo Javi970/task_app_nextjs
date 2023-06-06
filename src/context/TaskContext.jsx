@@ -11,23 +11,7 @@ export const useTasks = () => {
 };
 
 export const TaskProvider = ({ children }) => {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      title: "My first task",
-      description: "some task",
-    },
-    {
-      id: 2,
-      title: "My second task",
-      description: "some second task",
-    },
-    {
-      id: 3,
-      title: "My third task",
-      description: "some third task",
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
   //esta funcion agrega las tareas
   const createTask = (title, description) =>
     setTasks([
@@ -38,6 +22,7 @@ export const TaskProvider = ({ children }) => {
         id: uuid(),
       },
     ]);
+  //esta funcion elimina tareas
   const deleteTask = (id) =>
     setTasks([...tasks.filter((task) => task.id !== id)]);
 
